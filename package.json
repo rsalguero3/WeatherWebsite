@@ -1,0 +1,23 @@
+{
+  "name": "weatherwebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsalguero3/WeatherWebsite.git"
+  },
+  "author": "Ricardo Salguero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsalguero3/WeatherWebsite/issues"
+  },
+  "homepage": "https://github.com/rsalguero3/WeatherWebsite#readme",
+  "dependencies": {
+    "request": "^2.83.0",
+    "yargs": "^10.0.3"
+  }
+}
