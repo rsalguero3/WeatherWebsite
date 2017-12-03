@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/rsalguero3/WeatherWebsite#readme",
   "dependencies": {
+    "body-parser": "latest",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
     "request": "^2.83.0",
     "yargs": "^10.0.3"
   }
