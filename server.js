@@ -8,11 +8,12 @@ const googlePlacesApiKey = process.env.GOOGLE_API;
 
 
 app.use(express.static('public'));
+app.use("/js", express.static(__dirname + '/js'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
-    res.render('index', {weather: null, error: null, photoSrc: null});
+    res.render('index', {weather: null, error: null, photoSrc: null, weatherCondition: null});
 });
 
 app.post('/', function (req, res) {
@@ -30,7 +31,9 @@ app.post('/', function (req, res) {
                 res.render('index', {weather: null, error: 'Error, please try again'});
             } else {
                 let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+                let weatherConditionText = weather.weather[0].main;
                 let googlePhotoUrl = '';
+                console.log(weather.weather[0].main);
                 request(googleUrl, function (err, response, body) {
                     if (err){
                         console.log(err);
@@ -38,8 +41,8 @@ app.post('/', function (req, res) {
                     else {
                         let place = JSON.parse(body);
                         let photoReference = place.results[0].photos[0].photo_reference;
-                        googlePhotoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photoReference}&key=${googlePlacesApiKey}`;
-                        res.render('index', {weather: weatherText, error: null, photoSrc: googlePhotoUrl});
+                        googlePhotoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=540&photoreference=${photoReference}&key=${googlePlacesApiKey}`;
+                        res.render('index', {weather: weatherText, error: null, photoSrc: googlePhotoUrl, weatherCondition: weatherConditionText});
                     }
                 });
             }
