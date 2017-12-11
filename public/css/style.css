@@ -159,8 +159,8 @@ p {
     50% { transform: translateY(20px) scale(.7); opacity:.05; }
 }
 
-/* RAINY */
-.rainy {
+/* RAINY / RAIN */
+.rain {
     animation: rainy 5s ease-in-out infinite 1s;
     background: #CCCCCC;
     border-radius: 50%;
@@ -175,10 +175,10 @@ p {
     width: 50px;
     margin-left: -60px;
     position: absolute;
-    left: 427px;
+    left: 255px;
     top: 70px;
 }
-.rainy:after {
+.rain:after {
     animation: rainy_shadow 5s ease-in-out infinite 1s;
     background: #000000;
     border-radius: 50%;
@@ -191,7 +191,7 @@ p {
     bottom: -60px;
     transform: scale(1);
 }
-.rainy:before {
+.rain:before {
     animation: rainy_rain .7s infinite linear;
     content: '';
     background: #CCCCCC;
