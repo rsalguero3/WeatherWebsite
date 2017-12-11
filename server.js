@@ -54,8 +54,8 @@ app.post('/', function (req, res) {
     });
 });
 
-var port_number = server.listen(process.env.PORT || 3000);
+var port_number = process.env.PORT || 8080;
 
 app.listen(port_number, function () {
-    console.log('Example app listening on port 3000!')
+    console.log('Example app listening on port 8080!')
 });
