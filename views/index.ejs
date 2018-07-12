@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Weather</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
@@ -15,32 +15,41 @@
 <script>
     var forcast = <%- JSON.stringify(weatherCondition)%>;
 </script>
-<div class="container row">
-    <fieldset class="col-md-6">
+<div class="container">
+
+    <fieldset>
         <form action="/" method="post">
-            <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-            <input id="submitButton" type="submit" class="ghost-button" value="Get Weather">
+            <div class="row">
+            <input name="city" type="text" class="ghost-input col-lg-6 offset-lg-3" placeholder="Enter a City" required>
+            </div>
+            <div class="row">
+            <input id="submitButton" type="submit" class="ghost-button col-lg-6 offset-lg-3" value="Get Weather">
+            </div>
         </form>
+        <div class="row">
         <% if(weather !== null){ %>
-            <p class="card"><%= weather %></p>
+            <p class="card col-lg-6 offset-lg-3"><%= weather %></p>
         <% } %>
 
         <% if(error !== null){ %>
              <p><%= error %></p>
         <% } %>
+        </div>
+        <div class="row">
 
         <% if(photoSrc !== null) { %>
-             <img src="<%= photoSrc %>" class="card">
+             <img src="<%= photoSrc %>" class="card col-lg-6 offset-lg-3">
         <% } %>
+
+                    <div class="col-md-3">
+                        <div id="weather_animation" class="" ></div>
+                    </div>
+        </div>
     </fieldset>
 </div>
 
-<div id="weather_container" class="col-md-3">
-<div id="weather_animation" class="" ></div>
-</div>
 
 
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
